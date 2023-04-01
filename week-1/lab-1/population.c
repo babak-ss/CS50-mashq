@@ -12,7 +12,7 @@ int main(void)
 {
     int startSize = 0;
     int endSize = 0;
-    
+
     do
     {
         startSize = get_int("Start Size: ");
@@ -57,7 +57,7 @@ int get_int(const char *prompt)
         {
             //fprintf is the same as print of but it is used to output to a file
             // which in below code is "stderr"
-            fprintf(stderr, "Unrecoverable input error!\n");
+            // fprintf(stderr, "Unrecoverable input error!\n");
             // exits from the function(get_int) immediately
             exit(EXIT_FAILURE);
         }
@@ -93,7 +93,7 @@ int get_int(const char *prompt)
         // erros appear here we initialize it to 0 (meaning no error) to 
         // be able to check for errors in the next lines of our code
         errno = 0; 
-        //strtol parses string to long int
+        //strtol(string to long(duh!)) parses string to long int
         // buffer is our string, p is the pointer that directs to the end of int part of our string
         // and 10 is the base we use to convert string to long int(idk why 11 does not work!)
         l = strtol(buffer, &p, 10);
