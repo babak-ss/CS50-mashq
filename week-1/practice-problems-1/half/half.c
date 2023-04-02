@@ -173,7 +173,7 @@ float get_float(const char *prompt)
                 if (c == EOF)// EOF stands for End Of File
                 {
                     // fprintf(stderr, "Unrecoverable error reading from input!\n");
-                    // exits from the function(get_int) immediately
+                    // exits from the function(get_string) immediately
                     exit(EXIT_FAILURE);
                 }
 
