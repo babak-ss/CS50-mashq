@@ -92,7 +92,7 @@ int get_int(const char *prompt)
         errno = 0; 
         //strtol parses string to long int
         // buffer is our string, p is the pointer that directs to the end of int part of our string
-        // and 10 is the base we use to convert string to long int(idk why 11 does not work!)
+        // and 10 is the base we use to convert string to long int(base-10)
         l = strtol(buffer, &p, 10);
         // if the end of our int part is the same as our string it means we didn't have any int!
         if (p == buffer)
@@ -190,7 +190,7 @@ float get_float(const char *prompt)
         errno = 0; 
         //strtof(string to float(duh!)) parses string to float
         // buffer is our string, p is the pointer that directs to the end of number part of our string
-        // and 10 is the base we use to convert string to long int(idk why 11 does not work!)
+        // and 10 is the base we use to convert string to long int(base-10)
         f = strtof(buffer, &p);
         // if the end of our number part is the same as our string it means we didn't have any numbers!
         if (p == buffer)
