@@ -14,20 +14,21 @@ long get_long( const char *prompt );
 int main(void) 
 {
     bool isValid = false;
-    printf("%li\n", sum_digits(1111111111));
+    
+    // Ask user repeatadily untill the given credit card number is valid
     while (!isValid)
     {
+        // Get the Number and check it's validity
         isValid = check_validity(get_long("Number: "));
         if (!isValid)
             printf("INVALID\n");
     }
     printf("VALID\n");
-    
 }
 
 bool check_validity(long l)
 {
-    long sum = 0;
+    int sum = 0;
     long pow10 = 10;
     int c = 0;
     while (l > pow10)
@@ -41,12 +42,15 @@ bool check_validity(long l)
     return (sum % 10 == 0);
 }
 
+/// @brief Adds up the digits of the number and retuns the result
+/// @param l The number to sum up it's digits
+/// @return The sum of the number's digits
 long sum_digits(long l)
 {
     long sum = 0;
     long pow10 = 0;
     int c = 0;
-    while (l > pow10)
+    while (l > pow10) // Continue adding digits untill there are no digits
     {
         pow10 = math_pow(10, c);
         sum += (l / pow10) % 10;
@@ -56,17 +60,22 @@ long sum_digits(long l)
     return sum;
 }
 
+/// @brief Calculates the power of the given number
+/// @param l Given number
+/// @param p Power to calculate
+/// @return Result of powering up the given number
 long math_pow(long l, int p)
 {
     long r = 1;
     for (int i = 0; i < p; i++)
-    {
         r *= l;
-    }
     
     return r;
 }
 
+/// @brief Gets a long int variable from user and repeats asking untill it's given a valid input
+/// @param prompt The prompt to ask what the user wants
+/// @return The input number
 long get_long(const char *prompt)
 {
     //loop forever until user enters a valid number
